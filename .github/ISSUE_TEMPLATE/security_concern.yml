@@ -1,0 +1,80 @@
+name: Security Concern
+description: Report a security vulnerability (for non-critical issues; critical vulnerabilities should be emailed privately)
+title: "[SECURITY] "
+labels: ["security"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **For critical security vulnerabilities (RCE, auth bypass, data exposure), please email [maintainer email] directly instead of filing an issue.**
+
+        For lower-severity security concerns (hardening opportunities, validation gaps, etc.), use this template.
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Estimated Severity
+      description: Your assessment (will be validated by maintainers)
+      options:
+        - Low: Defense-in-depth improvement, no immediate exploit
+        - Medium: Validation gap, potential for misuse under specific conditions
+        - High: Authentication/authorization bypass possible
+        - Critical: Remote code execution, data exposure, auth bypass (EMAIL INSTEAD)
+    validations:
+      required: true
+  - type: dropdown
+    id: component
+    attributes:
+      label: Affected Component
+      options:
+        - Gateway (Python) — authentication, validation, IPC client
+        - Extension (JavaScript) — messaging, storage, permissions
+        - Hermes IPC — descriptor, authkey, protocol
+        - CI/Infrastructure — secrets, dependencies
+        - Documentation — missing security guidance
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Clear description of the security concern
+      placeholder: The gateway does not validate...
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Potential Impact
+      description: What could an attacker achieve?
+      placeholder: An attacker could...
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction (if safe)
+      description: Steps to demonstrate the concern (omit if it would expose a working exploit)
+      placeholder: |
+        1. Start gateway
+        2. Send request with...
+    validations:
+      required: false
+  - type: textarea
+    id: mitigation
+    attributes:
+      label: Suggested Mitigation
+      description: How could this be fixed or hardened?
+      placeholder: Add validation for...
+    validations:
+      required: false
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: This is NOT a critical vulnerability requiring private disclosure
+          required: true
+        - label: I have not included working exploit code
+          required: true
+        - label: I have checked SECURITY.md for existing mitigations
+          required: true

@@ -1,0 +1,79 @@
+name: Feature Request
+description: Suggest a new feature or enhancement
+title: "[FEATURE] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a feature. Please describe the problem it solves and the proposed solution.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What problem does this feature solve? Who benefits?
+      placeholder: Currently, users cannot...
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Describe the feature you'd like to see implemented
+      placeholder: Add a new endpoint /v1/... that...
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Other approaches you've considered and why they're less suitable
+      placeholder: Could also do X, but Y is better because...
+    validations:
+      required: false
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      options:
+        - Gateway (Python)
+        - Extension (JavaScript)
+        - Hermes IPC (in Hermes source)
+        - Documentation
+        - Tests/CI
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: phase
+    attributes:
+      label: Roadmap Phase
+      description: Which roadmap phase does this align with?
+      options:
+        - Phase 1: Repository & Gateway Stabilization
+        - Phase 2: Native Hermes IPC Validation
+        - Phase 3: Approval & Execution Validation
+        - Phase 4: Multi-Session Support
+        - Phase 5: Release Preparation
+        - Not yet roadmapped
+    validations:
+      required: false
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I have read the ROADMAP.md and this aligns with project direction
+          required: true
+        - label: This does not introduce security risks (or I've described them below)
+          required: true
+        - label: I'm willing to implement this or help with implementation
+          required: false
+  - type: textarea
+    id: security
+    attributes:
+      label: Security Considerations
+      description: Any auth, validation, or data handling implications?
+      placeholder: This feature would require...
+    validations:
+      required: false

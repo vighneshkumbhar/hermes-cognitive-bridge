@@ -1,0 +1,109 @@
+name: Bug Report
+description: Report a bug in Hermes Cognitive Bridge
+title: "[BUG] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Please fill out the sections below with as much detail as possible.
+  - type: input
+    id: version
+    attributes:
+      label: Version/Commit
+      description: Git commit hash, tag, or "main branch as of YYYY-MM-DD"
+      placeholder: e.g., abc1234 or main-2026-10-31
+    validations:
+      required: true
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      description: Which component is affected?
+      options:
+        - Gateway (Python)
+        - Extension (JavaScript)
+        - Hermes IPC (in Hermes source)
+        - Documentation
+        - Tests/CI
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Clear and concise description of the bug
+      placeholder: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction Steps
+      description: Minimal steps to reproduce the bug
+      placeholder: |
+        1. Start gateway with `python gateway/server.py`
+        2. Load extension in Chrome
+        3. Open ChatGPT and pair
+        4. Click "Send to Hermes"
+        5. Observe...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What should have happened?
+      placeholder: The panel should show...
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened?
+      placeholder: The panel showed an error...
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs/Output
+      description: Relevant gateway logs, browser console errors, or test output
+      placeholder: Paste logs here...
+      render: text
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating System
+      options:
+        - Windows 10/11
+        - macOS
+        - Linux
+        - Other
+    validations:
+      required: false
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser (if extension-related)
+      options:
+        - Chrome
+        - Brave
+        - Edge
+        - Firefox (not supported)
+        - N/A
+    validations:
+      required: false
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I have searched existing issues for duplicates
+          required: true
+        - label: This is not a security vulnerability (if it is, email privately instead)
+          required: true
+        - label: I have included relevant logs and reproduction steps
+          required: true

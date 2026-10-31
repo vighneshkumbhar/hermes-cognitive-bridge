@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "Hermes Cognitive Bridge",
+  "version": "0.2.0",
+  "description": "User-controlled prompt transfer panel for ChatGPT and Hermes.",
+  "permissions": ["storage", "clipboardWrite"],
+  "host_permissions": ["https://chatgpt.com/*", "https://chat.openai.com/*", "http://127.0.0.1:8765/*"],
+  "background": { "service_worker": "service-worker.js" },
+  "content_scripts": [{ "matches": ["https://chatgpt.com/*", "https://chat.openai.com/*"], "js": ["content.js"], "run_at": "document_idle" }],
+  "action": { "default_title": "Hermes Cognitive Bridge" }
+}

@@ -1,0 +1,13 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="popup.css"><title>Hermes Bridge</title></head>
+<body><main>
+  <header><strong>Hermes Bridge</strong><span id="connection">Checking…</span></header>
+  <label>Operating mode<select id="mode"><option>Manual</option><option>Assisted</option><option>Auto</option></select></label>
+  <p class="hint">Select text in the active ChatGPT tab, then send it to Hermes. Results are never submitted to ChatGPT automatically.</p>
+  <button id="send">Send selected text to Hermes</button>
+  <label>Request status<textarea id="status" readonly rows="2">Idle</textarea></label>
+  <label>Hermes result<textarea id="result" rows="7" placeholder="Completed results appear here"></textarea></label>
+  <div class="actions"><button id="receive">Receive from Hermes</button><button id="copy">Copy result</button></div>
+  <details><summary>Pair extension</summary><input id="pairCode" placeholder="One-time code"><button id="pair">Pair</button></details>
+  <small id="error" role="status"></small>
+</main><script src="popup.js"></script></body></html>
